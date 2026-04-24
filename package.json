@@ -17,7 +17,7 @@
     "mui",
     "jss"
   ],
-  "author": "Jens Ochsenmeier, u/garronej",
+  "author": "Yann Gaucge, u/yanngdev",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yanngdev/eslint-plugin-tss-unused-classes/issues"
