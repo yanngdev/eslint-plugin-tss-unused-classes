@@ -22,8 +22,8 @@ jobs:
       uses: garronej/ts-ci@v2.1.5
       with: 
         action_name: tell_if_project_uses_npm_or_yarn
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
       with:
         node-version: ${{ matrix.node }}
     - uses: bahmutov/npm-install@v1
@@ -76,14 +76,17 @@ jobs:
 
   publish_on_npm:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     needs: 
       - check_if_version_upgraded
     if: needs.check_if_version_upgraded.outputs.is_upgraded_version == 'true'
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         ref: ${{ github.ref }}
-    - uses: actions/setup-node@v4
+    - uses: actions/setup-node@v6
       with:
         node-version: '24'
         registry-url: https://registry.npmjs.org/
@@ -94,16 +97,11 @@ jobs:
           echo "This version is already published"
           exit 0
         fi
-        if [ "$NODE_AUTH_TOKEN" = "" ]; then
-          echo "Can't publish on NPM, You must first create a secret called NPM_TOKEN that contains your NPM auth token. https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets"
-          false
-        fi
         EXTRA_ARGS=""
         if [ "$IS_BETA" = "true" ]; then
             EXTRA_ARGS="--tag beta"
         fi
         npm publish $EXTRA_ARGS
       env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         VERSION: ${{ needs.check_if_version_upgraded.outputs.to_version }}
         IS_BETA: ${{ needs.check_if_version_upgraded.outputs.is_release_beta }}
