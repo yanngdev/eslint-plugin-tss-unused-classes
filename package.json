@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-tss-unused-classes",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "eslint plugin to detect unused tss-react styling classes",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/garronej/eslint-plugin-tss-unused-classes.git"
+    "url": "git+https://github.com/yanngdev/eslint-plugin-tss-unused-classes.git"
   },
   "keywords": [
     "eslint",
@@ -20,11 +20,11 @@
   "author": "Jens Ochsenmeier, u/garronej",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/garronej/eslint-plugin-tss-unused-classes/issues"
+    "url": "https://github.com/yanngdev/eslint-plugin-tss-unused-classes/issues"
   },
-  "homepage": "https://github.com/garronej/eslint-plugin-tss-unused-classes#readme",
+  "homepage": "https://github.com/yanngdev/eslint-plugin-tss-unused-classes#readme",
   "peerDependencies": {
-    "eslint": "^7.14.0 || ^8.0.0 || ^9.0.0"
+    "eslint": "^7.14.0 || ^8.0.0 || ^9.0.0 || ^10.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^4.9.0",
