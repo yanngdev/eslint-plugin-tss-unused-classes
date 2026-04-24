@@ -8,7 +8,7 @@ https://user-images.githubusercontent.com/6702424/167231369-4eaeb5b2-bb39-4647-9
 
 1. Add the dependency:
 ```sh
-yarn add --dev eslint-plugin-tss-unused-classes
+npm i --D @yanngdev/eslint-plugin-tss-unused-classes
 ```
 
 2. Enable it in your ESLint config
@@ -52,7 +52,7 @@ module.exports = {
 
 **Case 3**: You are using the flat config (ESLint 9+, `eslint.config.js` or `eslint.config.mjs`):  
 ```js
-import tssUnusedClasses from 'eslint-plugin-tss-unused-classes';
+import tssUnusedClasses from '@yanngdev/eslint-plugin-tss-unused-classes';
 
 export default [
   // ...
@@ -69,7 +69,7 @@ export default [
 
 Or using CommonJS:
 ```js
-const tssUnusedClasses = require('eslint-plugin-tss-unused-classes');
+const tssUnusedClasses = require('@yanngdev/eslint-plugin-tss-unused-classes');
 
 module.exports = [
   // ...
